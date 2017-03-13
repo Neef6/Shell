@@ -1,0 +1,8 @@
+#!/bin/sh
+
+script_dir="$(dirname "$(readlink -f "$0")")"
+for slave in '$script_dir/get-slaves'
+do
+        echo "~~~~~~server:$slave~~~~~~~~~"
+        ssh $slave "$1"
+done
